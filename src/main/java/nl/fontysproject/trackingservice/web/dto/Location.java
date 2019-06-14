@@ -1,7 +1,5 @@
 package nl.fontysproject.trackingservice.web.dto;
 
-import java.time.LocalDate;
-
 public class Location {
     private String name;
     private String date;
