@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Location {
     private String name;
-    private LocalDate date;
+    private String date;
     private double lat;
     private double lng;
 
@@ -28,11 +28,11 @@ public class Location {
         this.lat = lat;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
