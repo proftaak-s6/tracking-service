@@ -3,6 +3,9 @@ package nl.fontysproject.trackingservice.web.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import nl.fontysproject.trackingservice.model.Location;
+import nl.fontysproject.trackingservice.model.Step;
+
 public class LocationDto {
 
     @NotNull
@@ -18,6 +21,17 @@ public class LocationDto {
 
     @NotNull
     private double lng;
+
+    public Location toModel() {
+        Location location = new Location();
+        
+        location.setDate(date);
+        location.setName(name);
+        location.setLat(lat);
+        location.setLng(lng);
+
+        return location;
+	}
 
     public String getName() {
         return name;

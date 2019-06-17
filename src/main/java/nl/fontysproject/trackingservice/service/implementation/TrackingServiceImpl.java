@@ -1,16 +1,13 @@
 package nl.fontysproject.trackingservice.service.implementation;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
+import nl.fontysproject.trackingservice.model.Route;
 import nl.fontysproject.trackingservice.model.Step;
 import nl.fontysproject.trackingservice.service.TrackingService;
 
@@ -38,11 +35,20 @@ public class TrackingServiceImpl implements TrackingService {
         //     return null;
         // }
 
+        Route route;
+
         TypedQuery<Step> query = manager.createQuery("SELECT s FROM Step s WHERE s.trackerId = :trackerId AND s.year = :year AND s.month = :month", Step.class);
         query.setParameter("trackerId", trackerId);
         query.setParameter("year", year);
         query.setParameter("month", month);
         return query.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public long add(Route route){
+        manager.merge(route);
+        return route.getId();
     }
 
     private Step createStep(int distance, String locationName, int year, int month) {

@@ -4,6 +4,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import nl.fontysproject.trackingservice.model.Location;
+import nl.fontysproject.trackingservice.model.Step;
+
 public class StepDto {
 
     @NotNull
@@ -12,6 +15,16 @@ public class StepDto {
 
     @Valid
     private LocationDto location;
+
+
+    public Step toModel() {
+        Step step = new Step();
+
+        step.setDistance(distance);
+        step.setLocation(location.toModel());
+
+        return step;
+    }
 
     public int getDistance() {
         return distance;

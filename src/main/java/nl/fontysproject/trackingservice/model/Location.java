@@ -1,9 +1,11 @@
 package nl.fontysproject.trackingservice.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -13,7 +15,8 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne
+    @OneToOne(optional = false)
+    @JoinColumn(name = "step_id", referencedColumnName = "id")
     private Step step;
 
     private String name;
