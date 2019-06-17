@@ -6,7 +6,7 @@ services:
     build: .
     image: yoksar/tracking-service
     environment:
-      DATABASE_URL: jdbc:mysql://192.168.178.24:9040/projectdb
+      DATABASE_URL: jdbc:mysql://192.168.178.24:9030/projectdb
       DATABASE_USER: mysql
       DATABASE_PASS: mysql
     ports:
