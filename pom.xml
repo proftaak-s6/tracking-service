@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <kumuluzee.version>3.4.0</kumuluzee.version>
     <kumuluzee-openapi.version>1.0.0</kumuluzee-openapi.version>
   </properties>
@@ -60,6 +60,31 @@
       <groupId>com.kumuluz.ee</groupId>
       <artifactId>kumuluzee-cdi-weld</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee.amqp</groupId>
+      <artifactId>kumuluzee-amqp-rabbitmq</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee</groupId>
+      <artifactId>kumuluzee-json-p-jsonp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee</groupId>
+      <artifactId>kumuluzee-el-uel</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee</groupId>
+      <artifactId>kumuluzee-bean-validation-hibernate-validator</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.5</version>
+    </dependency>
+
   </dependencies>
 
   <build>

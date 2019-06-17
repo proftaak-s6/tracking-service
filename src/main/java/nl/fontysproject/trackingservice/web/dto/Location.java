@@ -1,9 +1,23 @@
 package nl.fontysproject.trackingservice.web.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Location {
+
+    @NotNull
+    @NotBlank
     private String name;
+
+    @NotNull
+    @NotBlank
     private String date;
+
+    @NotNull
     private double lat;
+
+    @NotNull
     private double lng;
 
     public String getName() {

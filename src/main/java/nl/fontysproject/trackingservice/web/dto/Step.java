@@ -1,7 +1,16 @@
 package nl.fontysproject.trackingservice.web.dto;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class Step {
+
+    @NotNull
+    @Min(1)
     private int distance;
+
+    @Valid
     private Location location;
 
     public int getDistance() {

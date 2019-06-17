@@ -1,0 +1,13 @@
+kumuluzee:
+  amqp:
+    rabbitmq:
+      hosts:
+        - name: rabbitmq
+          url: 192.168.178.24
+          password: admin
+          username: admin
+          exchanges:
+            - name: trackingExchange
+              type: direct
+
+    

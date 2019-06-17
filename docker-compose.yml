@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  tracking:
+    image: maven:alpine
+    volumes:
+      - ./target:/app
+    command: java -jar /app/trackingService-1.0.0.jar
+    ports:
+      - 9000:8080
+  
+  db:
+    image: mysql:8.0.15
+    volumes:
+       - ./volumes/db/data/:/var/lib/mysql/ 
+    environment:
+      MYSQL_DATABASE: default
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: supersecret

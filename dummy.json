@@ -1,0 +1,14 @@
+{
+    "trackerId": 1,
+    "steps": [
+        {
+            "distance": 200,
+            "location": {
+                "name": "Testweg",
+                "date": "12-12-12",
+                "lat": 1.12,
+                "lng": 1.12
+            }
+        }
+    ]
+}
