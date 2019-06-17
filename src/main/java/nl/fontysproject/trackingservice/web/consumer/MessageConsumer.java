@@ -37,6 +37,7 @@ public class MessageConsumer {
             }
 
             log.info("Got route: " + jsonParser.toJson(route));
+            // TODO: Naar DB.
         } catch (Exception e) {
             log.warning(e.getMessage());
             log.warning("Could not parse Route from JSON: " + message);
