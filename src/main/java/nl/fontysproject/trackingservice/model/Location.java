@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Location {
 
@@ -17,6 +19,7 @@ public class Location {
 
     @OneToOne(optional = false)
     @JoinColumn(name = "step_id", referencedColumnName = "id")
+    @JsonBackReference
     private Step step;
 
     private String name;

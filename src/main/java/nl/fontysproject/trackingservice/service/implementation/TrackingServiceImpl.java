@@ -19,26 +19,8 @@ public class TrackingServiceImpl implements TrackingService {
 
     @Override
     public List<Step> get(long trackerId, final int year, final int month) {
-        // if (trackerId == 1) {
-        //     return new ArrayList<Step>() {
-        //         private static final long serialVersionUID = 1L;
-
-        //         {
-        //             add(createStep(234, "Tilburg", year, month));
-        //             add(createStep(128, "Dongenseweg", year, month));
-        //             add(createStep(4544, "A27", year, month));
-        //             add(createStep(2044, "Minister Ruys de Beerenbrouckstraat", year, month));
-        //             add(createStep(12344, "N013", year, month));
-        //         }
-        //     };
-        // } else {
-        //     return null;
-        // }
-
-        Route route;
-
-        TypedQuery<Step> query = manager.createQuery("SELECT s FROM Step s WHERE s.trackerId = :trackerId AND s.year = :year AND s.month = :month", Step.class);
-        query.setParameter("trackerId", trackerId);
+        TypedQuery<Step> query = manager.createQuery("SELECT s FROM Step s JOIN s.route JOIN s.location WHERE s.route.trackerId = :trackerId AND MONTH(s.location.date) = :month AND YEAR(s.location.date) = :year", Step.class);
+        query.setParameter("trackerId", new Long(trackerId).intValue());
         query.setParameter("year", year);
         query.setParameter("month", month);
         return query.getResultList();
@@ -49,21 +31,5 @@ public class TrackingServiceImpl implements TrackingService {
     public long add(Route route){
         manager.merge(route);
         return route.getId();
-    }
-
-    private Step createStep(int distance, String locationName, int year, int month) {
-        // Step step = new Step();
-        // Location location = new Location();
-
-        // location.setName(locationName);
-        // LocalDateTime date = LocalDateTime.parse(
-        //         year + "-" + month + "-" + ThreadLocalRandom.current().nextInt(1, 27 + 1) + "T00:00:00",
-        //         DateTimeFormatter.ofPattern("yyyy-MM-d'T'HH:mm:ss"));
-        // location.setDate(date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")));
-
-        // step.setDistance(distance);
-        // step.setLocation(location);
-
-        return null;
     }
 }
