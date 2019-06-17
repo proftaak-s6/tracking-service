@@ -26,10 +26,12 @@ public class RouteDto {
 
         route.setTrackerId(trackerId);
         route.setSteps(steps.stream().map(StepDto::toModel).collect(Collectors.toList()));
-        
-        for( Step s : route.getSteps()){
+
+        for (Step s : route.getSteps()) {
             s.getLocation().setStep(s);
+            s.setRoute(route);
         }
+
         return route;
     }
 
