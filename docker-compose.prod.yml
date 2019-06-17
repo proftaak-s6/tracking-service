@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  tracking:
+    container_name: "tracking-service"
+    build: .
+    image: yoksar/tracking-service
+    environment:
+      DB_URL: jdbc:mysql://192.168.178.24:9040/projectdb
+      DB_USER: mysql
+      DB_PASS: mysql
+    ports:
+      - 9300:8080
+    restart: unless-stopped
