@@ -1,9 +1,9 @@
 package nl.fontysproject.trackingservice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Step {
@@ -12,7 +12,14 @@ public class Step {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private int distance;
+
+    @OneToOne
     private Location location;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    @JsonBackReference
+    private Route route;
 
 
     public long getId() {
@@ -38,4 +45,13 @@ public class Step {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    public Route getRoute() {
+        return this.route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
 }

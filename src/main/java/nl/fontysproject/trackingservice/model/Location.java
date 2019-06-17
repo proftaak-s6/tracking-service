@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Location {
@@ -11,6 +12,9 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @OneToOne
+    private Step step;
 
     private String name;
     private String date;
@@ -26,35 +30,43 @@ public class Location {
         this.id = id;
     }
 
+    public Step getStep() {
+        return this.step;
+    }
+
+    public void setStep(Step step) {
+        this.step = step;
+    }
+
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public double getLng() {
-        return lng;
-    }
-
-    public void setLng(double lng) {
-        this.lng = lng;
-    }
-
-    public double getLat() {
-        return lat;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public double getLat() {
+        return this.lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return this.lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 }

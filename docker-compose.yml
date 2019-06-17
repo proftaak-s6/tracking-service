@@ -3,6 +3,10 @@ version: '3'
 services:
   tracking:
     image: maven:alpine
+    environment:
+      DATABASE_URL: jdbc:mysql://db:3306/default
+      DATABASE_USER: mysql
+      DATABASE_PASS: mysql
     volumes:
       - ./target:/app
     command: java -jar /app/trackingService-1.0.0.jar

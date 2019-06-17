@@ -1,6 +1,5 @@
 package nl.fontysproject.trackingservice.web.dto;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
