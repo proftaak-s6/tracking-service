@@ -9,5 +9,13 @@ kumuluzee:
           exchanges:
             - name: trackingExchange
               type: direct
+  
+  datasources:
+    - jndi-name: jdbc/tracking
+      connection-url: '${DATABASE_URL}'
+      username: '${DATABASE_USER}'
+      password: '${DATABASE_PASS}'
+      pool:
+        max-size: 20
 
     

@@ -4,24 +4,24 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class Step {
+public class StepDto {
 
     @NotNull
     @Min(1)
     private int distance;
 
     @Valid
-    private Location location;
+    private LocationDto location;
 
     public int getDistance() {
         return distance;
     }
 
-    public Location getLocation() {
+    public LocationDto getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(LocationDto location) {
         this.location = location;
     }
 

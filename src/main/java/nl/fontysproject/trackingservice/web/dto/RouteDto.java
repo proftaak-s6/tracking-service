@@ -7,7 +7,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class Route {
+public class RouteDto {
 
     @Min(value = 1)
     private int trackerId;
@@ -15,17 +15,17 @@ public class Route {
     @NotNull
     @NotEmpty
     @Valid
-    private List<Step> steps;
+    private List<StepDto> steps;
 
     public int getTrackerId() {
         return trackerId;
     }
 
-    public List<Step> getSteps() {
+    public List<StepDto> getSteps() {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
+    public void setSteps(List<StepDto> steps) {
         this.steps = steps;
     }
 

@@ -1,24 +1,30 @@
-package nl.fontysproject.trackingservice.web.dto;
+package nl.fontysproject.trackingservice.model;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Location {
 
-    @NotNull
-    @NotBlank
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     private String name;
-
-    @NotNull
-    @NotBlank
     private String date;
-
-    @NotNull
     private double lat;
-
-    @NotNull
     private double lng;
+
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

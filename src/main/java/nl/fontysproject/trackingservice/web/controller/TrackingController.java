@@ -10,8 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import nl.fontysproject.trackingservice.model.Step;
 import nl.fontysproject.trackingservice.service.TrackingService;
-import nl.fontysproject.trackingservice.web.dto.Step;
 
 @Path("trackings")
 @Produces(MediaType.APPLICATION_JSON)

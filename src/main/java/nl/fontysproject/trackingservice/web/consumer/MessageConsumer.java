@@ -12,7 +12,7 @@ import javax.validation.Validator;
 import com.google.gson.Gson;
 import com.kumuluz.ee.amqp.common.annotations.AMQPConsumer;
 
-import nl.fontysproject.trackingservice.web.dto.Route;
+import nl.fontysproject.trackingservice.web.dto.RouteDto;
 
 @ApplicationScoped
 public class MessageConsumer {
@@ -24,9 +24,9 @@ public class MessageConsumer {
     @AMQPConsumer(host = "rabbitmq", exchange = "trackingExchange", key = "newTrack")
     public void onMessage(String message) {
         try {
-            Route route = parseRoute(message);
+            RouteDto route = parseRoute(message);
 
-            Set<ConstraintViolation<Route>> violations = validator.validate(route);
+            Set<ConstraintViolation<RouteDto>> violations = validator.validate(route);
 
             if (!violations.isEmpty()) {
                 log.warning("Parsed route has validation errors.\n" + String
@@ -44,7 +44,7 @@ public class MessageConsumer {
         }
     }
 
-    private Route parseRoute(String json) {
-        return jsonParser.fromJson(json, Route.class);
+    private RouteDto parseRoute(String json) {
+        return jsonParser.fromJson(json, RouteDto.class);
     }
 }
